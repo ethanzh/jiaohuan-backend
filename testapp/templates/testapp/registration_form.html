@@ -1,4 +1,4 @@
-{% extends 'users/base.html' %}
+{% extends 'testapp/base.html' %}
 {% block title %}Register{% endblock %}
 
 {% block body %}
@@ -16,7 +16,7 @@
 
                     <form class="form-horizontal" action="" method="post">
                         {% csrf_token %}
-                        {% include 'users/form_template.html' %}
+                        {% include 'testapp/form_template.html' %}
                         <div class="form-group">
                             <div class="col-sm-offset-2 col-sm-10">
                                 <button type="submit" class="btn btn-success">Submit</button>

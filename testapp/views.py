@@ -5,13 +5,17 @@ from django.contrib.auth import authenticate, login
 from . forms import UserForm
 
 
-def test(request):
-    return HttpResponse("<p> Test </p>")
+def blank_test(request):
+    return HttpResponse("<p> Blank </p>")
+
+
+def register_test(request):
+    return HttpResponse("<p> Register </p>")
 
 
 class UserFormView(View):
     form_class = UserForm
-    template_name = 'users/registration_form.html'
+    template_name = 'testapp/registration_form.html'
 
     # display blank form
     def get(self, request):
@@ -42,6 +46,6 @@ class UserFormView(View):
 
                     login(request, user)
 
-                    return redirect('users:index')
+                    return redirect('testapp:index')
 
         return render(request, self.template_name, {'form': form})

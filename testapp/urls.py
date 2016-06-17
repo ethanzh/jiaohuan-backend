@@ -3,7 +3,8 @@ from django.contrib import admin
 from . import views
 
 urlpatterns = [
-    url(r'^', views.test, name='test'),
+    url(r'^$', views.blank_test, name='test'),
 
-    url(r'^register$', views.UserFormView.as_view(), name='register'),
+    # Register
+    url(r'^register/$', views.UserFormView.as_view(), name='register'),
 ]
