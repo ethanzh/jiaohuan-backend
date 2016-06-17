@@ -39,7 +39,7 @@
         <entry file="file://$PROJECT_DIR$/testapp/templates/testapp/registration_form.html">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.28947368">
-              <caret line="11" column="29" selection-start-line="11" selection-start-column="29" selection-end-line="11" selection-end-column="29" />
+              <caret line="11" column="24" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -516,7 +516,13 @@
       <option name="project" value="LOCAL" />
       <updated>1466155598344</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Got registration form working">
+      <created>1466156946640</created>
+      <option name="number" value="00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1466156946640</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -727,7 +733,7 @@
     <entry file="file://$PROJECT_DIR$/testapp/templates/testapp/registration_form.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.28947368">
-          <caret line="11" column="29" selection-start-line="11" selection-start-column="29" selection-end-line="11" selection-end-column="29" />
+          <caret line="11" column="24" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="24" />
           <folding />
         </state>
       </provider>
