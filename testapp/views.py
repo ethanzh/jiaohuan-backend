@@ -29,8 +29,7 @@ class UserFormView(View):
             # cleaned (normalized) data
             username = form.cleaned_data['username']
             password = form.cleaned_data['password']
-            testy = "hello_world"
-            user.test_form = testy
+
             user.set_password(password)
             user.save()
 
