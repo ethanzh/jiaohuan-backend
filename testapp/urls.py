@@ -2,14 +2,22 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from . import views
 
+app_name = "testapp"
+
 urlpatterns = [
 
+
+    # Index
+    url(r'', views.index, name='index'),
+
+     # List
+    url(r'^list/$', views.UserList.as_view(), name='list'),
 
     # Register
     url(r'^register/$', views.UserFormView.as_view(), name='register'),
 
     # Login
-    url(r'^login/$', views.login, name='login'),
+    url(r'^login/$', views.test_login, name='login'),
 
     url('', include('django.contrib.auth.urls')),
 ]

@@ -1,0 +1,10 @@
+{% extends 'testapp/base.html' %}
+{% block body %}
+
+<ul>
+    {% for user in object_list %}
+        <li>{{ user.email }} </li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

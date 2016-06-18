@@ -3,10 +3,23 @@ from django.http import HttpResponse
 from django.views.generic import View
 from django.contrib.auth import authenticate, login
 from . forms import UserForm
+from django.views import generic
+from django.contrib.auth.models import User
 
 
-def login(request):
+def index(request):
+    return render(request, 'testapp/index.html')
+
+
+def test_login(request):
     return render(request, 'testapp/login.html')
+
+
+class UserList(generic.ListView):
+    template_name = 'testapp/list_of_users.html'
+
+    def get_queryset(self):
+        return User.objects.all()
 
 
 class UserFormView(View):
