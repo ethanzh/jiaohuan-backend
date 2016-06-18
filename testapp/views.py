@@ -5,12 +5,8 @@ from django.contrib.auth import authenticate, login
 from . forms import UserForm
 
 
-def blank_test(request):
-    return HttpResponse("<p> Blank </p>")
-
-
-def register_test(request):
-    return HttpResponse("<p> Register </p>")
+def login(request):
+    return render(request, 'testapp/login.html')
 
 
 class UserFormView(View):
