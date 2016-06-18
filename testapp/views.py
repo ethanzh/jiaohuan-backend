@@ -1,5 +1,4 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
 from django.views.generic import View
 from django.contrib.auth import authenticate, login
 from . forms import UserForm
@@ -9,10 +8,6 @@ from django.contrib.auth.models import User
 
 def index(request):
     return render(request, 'testapp/index.html')
-
-
-def test_login(request):
-    return render(request, 'testapp/login.html')
 
 
 class UserList(generic.ListView):
