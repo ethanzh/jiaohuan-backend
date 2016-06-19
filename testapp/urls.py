@@ -9,10 +9,7 @@ app_name = "testapp"
 urlpatterns = [
 
     # Index
-    url(r'^index/$', views.index, name='index'),
-
-    # Login
-    # url(r'^login/$', views.login_user, name='login'),
+    url(r'$', views.index, name='index'),
 
     # List
     url(r'^list/$', views.UserList.as_view(), name='list'),
@@ -20,14 +17,12 @@ urlpatterns = [
     # Register
     url(r'^register/$', views.UserFormView.as_view(), name='register'),
 
-    # url(
-    #     regex=r'^login/$',
-    #     view=login,
-    #     kwargs={'template_name': 'login.html'},
-    #     name='login'
-    # ),
-
+    # Login
     url(r'^login/$', 'django.contrib.auth.views.login',
         {'template_name': 'testapp/registration/login.html'}, name="login"),
+
+
+    # Success
+    url(r'^success/$', views.success, name='success'),
 
 ]

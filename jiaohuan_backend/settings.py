@@ -53,7 +53,7 @@ MIDDLEWARE_CLASSES = [
 
 ROOT_URLCONF = 'jiaohuan_backend.urls'
 
-LOGIN_REDIRECT_URL = ''
+LOGIN_REDIRECT_URL = 'success'
 
 TEMPLATES = [
     {
