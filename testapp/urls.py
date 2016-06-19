@@ -4,6 +4,8 @@ from . import views
 from django.contrib.auth.views import login
 from django.contrib.auth.views import logout
 
+from django.contrib.auth import views as auth_views
+
 app_name = "testapp"
 
 urlpatterns = [
@@ -18,9 +20,8 @@ urlpatterns = [
     url(r'^register/$', views.UserFormView.as_view(), name='register'),
 
     # Login
-    url(r'^login/$', 'django.contrib.auth.views.login',
+    url(r'^login/$', auth_views.login,
         {'template_name': 'testapp/registration/login.html'}, name="login"),
-
 
     # Success
     url(r'^success/$', views.success, name='success'),
