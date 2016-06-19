@@ -31,7 +31,7 @@
             <ul class="nav navbar-nav">
                 <li class="">
                     <a href="{% url 'testapp:list' %}">
-                        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp; Users
+                        <span class="glyphicon glyphicon-option-horizontal" aria-hidden="true"></span>&nbsp; Users
                     </a>
                 </li>
             </ul>
@@ -46,6 +46,13 @@
             </form>
 
             <ul class="nav navbar-nav navbar-right">
+
+                <li class="">
+                    <a href="{% url 'testapp:login' %}">
+                        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp; Login
+                    </a>
+                </li>
+
                 <li class="">
                     <a href="{% url 'testapp:register' %}">
                         <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>&nbsp; Add user
