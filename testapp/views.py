@@ -5,16 +5,20 @@ from . forms import UserForm
 from django.http import HttpResponse
 from django.views import generic
 from django.contrib.auth.models import User
-from django.views.generic import FormView, RedirectView
-from django.contrib.auth import REDIRECT_FIELD_NAME, login as auth_login, logout as auth_logout
-from django.utils.http import is_safe_url
-from django.contrib.auth.forms import AuthenticationForm
-from django.contrib.auth import REDIRECT_FIELD_NAME, login as auth_login, logout as auth_logout
-from django.utils.decorators import method_decorator
-from django.views.decorators.cache import never_cache
-from django.views.decorators.csrf import csrf_protect
-from django.views.decorators.debug import sensitive_post_parameters
-from django.views.generic import FormView, RedirectView
+from rest_framework.views import APIView
+from . serializers import UserSerializer
+from rest_framework.response import Response
+
+
+class UserList(APIView):
+
+    def get(self, request):
+        users = User.objects.all()
+        serializer = UserSerializer(users, many=True)
+        return Response(serializer.data)
+
+    def post(self):
+        pass
 
 
 def success(request):
@@ -29,7 +33,7 @@ def login_user(request):
     return render(request, 'testapp/old_login.html')
 
 
-class UserList(generic.ListView):
+class NonJSONUserList(generic.ListView):
     template_name = 'testapp/list_of_users.html'
 
     def get_queryset(self):

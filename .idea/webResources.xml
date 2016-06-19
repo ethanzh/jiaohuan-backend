@@ -5,7 +5,7 @@
       <entry url="file://$PROJECT_DIR$">
         <entryData>
           <resourceRoots>
-            <path value="file://$PROJECT_DIR$/jiaohuan_backend/static" />
+            <path value="file://$PROJECT_DIR$/testapp/templates/testapp/static" />
           </resourceRoots>
         </entryData>
       </entry>
