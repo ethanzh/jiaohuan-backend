@@ -11,7 +11,7 @@ app_name = "testapp"
 urlpatterns = [
 
     # Index
-    url(r'$', views.index, name='index'),
+    url(r'index/$', views.index, name='index'),
 
     # List
     url(r'^list/$', views.UserList.as_view(), name='list'),
