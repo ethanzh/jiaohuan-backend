@@ -2,6 +2,7 @@ from django.conf.urls import url, include
 from . import views
 from django.contrib.auth import views as auth_views
 from rest_framework.urlpatterns import format_suffix_patterns
+from django.views.decorators.csrf import csrf_exempt
 
 app_name = "testapp"
 
@@ -17,7 +18,7 @@ urlpatterns = [
     url(r'^register/$', views.UserFormView.as_view(), name='register'),
 
     # Login
-    url(r'^login/$', auth_views.login,
+    url(r'^login/$', csrf_exempt(auth_views.login),
         {'template_name': 'testapp/registration/login.html'}, name="login"),
 
     # Success
