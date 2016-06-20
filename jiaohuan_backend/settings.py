@@ -70,7 +70,17 @@ TEMPLATES = [
     },
 ]
 
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+    )
+}
+
+
 WSGI_APPLICATION = 'jiaohuan_backend.wsgi.application'
+
+CSRF_COOKIE_SECURE = False
 
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
