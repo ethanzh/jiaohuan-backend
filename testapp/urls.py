@@ -18,7 +18,7 @@ urlpatterns = [
     url(r'^register/$', views.UserFormView.as_view(), name='register'),
 
     # Login
-    url(r'^login/$', csrf_exempt(auth_views.login),
+    url(r'^login/', auth_views.login,
         {'template_name': 'testapp/registration/login.html'}, name="login"),
 
     # Login

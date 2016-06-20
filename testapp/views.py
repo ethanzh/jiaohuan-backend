@@ -58,6 +58,7 @@ def mobile_login(request, template_name='registration/login.html',
 
     return TemplateResponse(request, template_name, context)
 
+
 class UserList(APIView):
 
     def get(self, request):
