@@ -20,6 +20,19 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import resolve_url
 from django.template.response import TemplateResponse
 from django.utils.http import is_safe_url
+from oauth2_provider.views.generic import ProtectedResourceView
+from django.contrib.auth.decorators import login_required
+
+
+@login_required()
+def secret_page(request, *args, **kwargs):
+    return HttpResponse('Secret contents!', status=200)
+
+
+class ApiEndpoint(ProtectedResourceView):
+    def get(self, request, *args, **kwargs):
+        return HttpResponse('Hello, OAuth2!')
+
 
 @csrf_exempt
 def mobile_login(request, template_name='registration/login.html',
