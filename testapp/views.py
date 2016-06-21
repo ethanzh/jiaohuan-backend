@@ -79,7 +79,7 @@ class UserList(generics.ListCreateAPIView):
 
 
 def success(request):
-    return HttpResponse("<p> success! </p>")
+    return HttpResponse("<p> Success! </p>")
 
 
 def index(request):
