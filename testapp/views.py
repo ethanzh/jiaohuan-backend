@@ -22,6 +22,7 @@ from django.template.response import TemplateResponse
 from django.utils.http import is_safe_url
 from oauth2_provider.views.generic import ProtectedResourceView
 from django.contrib.auth.decorators import login_required
+from rest_framework import generics
 
 
 @login_required()
@@ -72,19 +73,9 @@ def mobile_login(request, template_name='registration/login.html',
     return TemplateResponse(request, template_name, context)
 
 
-class UserList(APIView):
-
-    def get(self, request):
-        users = User.objects.all()
-        serializer = UserSerializer(users, many=True)
-        return Response({'Users': serializer.data})
-
-    def post(self, request):
-        serializer = UserSerializer(data=request.DATA)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=200)
-        return Response(serializer.errors, status=400)
+class UserList(generics.ListCreateAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
 
 
 def success(request):
