@@ -25,6 +25,10 @@ urlpatterns = [
     url(r'^mobile_login/$', views.mobile_login, name="mobile_login"),
 
 
+    # Login
+    url(r'^mobile_login/success/', views.success, name="mobile_success"),
+
+
     # Success
     url(r'^success/$', views.success, name='success'),
 
