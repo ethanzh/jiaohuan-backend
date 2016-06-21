@@ -89,9 +89,15 @@ OAUTH2_PROVIDER = {
 }
 
 REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-        'oauth2_provider.ext.rest_framework.OAuth2Authentication',
-    ),
+
+
+    # DISABLE TEMPORARILY
+    # TODO: LOOK HERE
+    # 'DEFAULT_AUTHENTICATION_CLASSES': (
+    #     'oauth2_provider.ext.rest_framework.OAuth2Authentication',
+    # ),
+
+
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.IsAuthenticated',
     )
