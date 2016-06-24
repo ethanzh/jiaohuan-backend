@@ -29,12 +29,6 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
-AUTHENTICATION_BACKENDS = (
-    'oauth2_provider.backends.OAuth2Backend',
-    # Uncomment following if you want to access the admin
-    'django.contrib.auth.backends.ModelBackend'
-)
-
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -44,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'oauth2_provider',
+    'rest_framework.authtoken',
     'corsheaders',
 ]
 
@@ -58,7 +52,6 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'corsheaders.middleware.CorsMiddleware',
-    'oauth2_provider.middleware.OAuth2TokenMiddleware',
 ]
 
 CORS_ORIGIN_ALLOW_ALL = True
@@ -83,18 +76,15 @@ TEMPLATES = [
     },
 ]
 
-OAUTH2_PROVIDER = {
-    # this is the list of available scopes
-    'SCOPES': {'read': 'Read scope', 'write': 'Write scope', 'groups': 'Access to your groups'}
-}
-
 REST_FRAMEWORK = {
 
 
     'DEFAULT_AUTHENTICATION_CLASSES': (
-        'oauth2_provider.ext.rest_framework.OAuth2Authentication',
-    ),
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
 
+    ),
 
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.IsAuthenticated',

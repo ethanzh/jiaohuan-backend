@@ -36,10 +36,10 @@ urlpatterns = [
     # JSON Data
     url(r'^json/$', views.UserList.as_view(), name='json'),
 
-    url(r'^api/', views.ApiEndpoint.as_view()),  # and also a resource server!
+    #url(r'^api/', views.ApiEndpoint.as_view()),  # and also a resource server!
 
      # Secret
-    url(r'^secret/$', views.secret_page, name='secret'),
+    #url(r'^secret/$', views.secret_page, name='secret'),
 
 ]
 
