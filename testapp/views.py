@@ -23,8 +23,6 @@ from django.utils.http import is_safe_url
 from rest_framework import generics
 
 
-
-
 @csrf_exempt
 def mobile_login(request, template_name='registration/login.html',
                  redirect_field_name=REDIRECT_FIELD_NAME,
@@ -75,9 +73,6 @@ def success(request):
 def index(request):
     return render(request, 'testapp/index.html')
 
-
-def login_user(request):
-    return render(request, 'testapp/old_login.html')
 
 
 class NonJSONUserList(generic.ListView):
