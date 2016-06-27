@@ -77,11 +77,13 @@ TEMPLATES = [
 ]
 
 REST_FRAMEWORK = {
-
-
-
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    ),
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+    )
 }
-
 
 WSGI_APPLICATION = 'jiaohuan_backend.wsgi.application'
 
@@ -93,10 +95,10 @@ CSRF_COOKIE_SECURE = False
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'users',
+        'NAME': 'Jiaohuan',
         'USER': 'ethanzh',
         'PASSWORD': '38243874',
-        'HOST': 'testdb.cxjkozqwlpoe.ap-northeast-1.rds.amazonaws.com',
+        'HOST': 'jiaohuandb.cxjkozqwlpoe.ap-northeast-1.rds.amazonaws.com',
         'PORT': '5432',
     }
 }
