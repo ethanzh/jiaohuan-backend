@@ -11,10 +11,10 @@ app_name = "testapp"
 urlpatterns = [
 
     # Index
-    url(r'index/$', views.index, name='index'),
+    url(r'^', views.index, name='index'),
 
     # List
-    url(r'^list/$', views.NonJSONUserList.as_view(), name='list'),
+    url(r'^list/$', views.UserList.as_view(), name='list'),
 
     # Register
     url(r'^register/$', views.UserFormView.as_view(), name='register'),
@@ -30,16 +30,17 @@ urlpatterns = [
     # Login
     url(r'^mobile_login/success/', views.success, name="mobile_success"),
 
-
     # Success
     url(r'^success/$', views.success, name='success'),
-
 
     # JSON Data
     url(r'^json/$', views.UserList.as_view(), name='json'),
 
-
+    # Helps obtain token when provided with username and password
     url(r'^api-token-auth/', DRFviews.obtain_auth_token),
+
+    url(r'^profiles/home', views.home),
+
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)

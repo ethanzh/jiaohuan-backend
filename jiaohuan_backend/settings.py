@@ -59,7 +59,7 @@ CORS_ORIGIN_ALLOW_ALL = True
 
 ROOT_URLCONF = 'jiaohuan_backend.urls'
 
-LOGIN_REDIRECT_URL = 'success/'
+LOGIN_REDIRECT_URL = '/profiles/home'
 
 TEMPLATES = [
     {

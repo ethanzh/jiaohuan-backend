@@ -2,15 +2,13 @@ from django.shortcuts import render, redirect
 from django.views.generic import View
 from django.contrib.auth import authenticate, login
 from . forms import UserForm
+from django.core.urlresolvers import reverse
 from django.http import HttpResponse
 from django.views import generic
 from django.contrib.auth.models import User
 from . serializers import UserSerializer
-from rest_framework.response import Response
-from rest_framework.views import APIView
 from django.views.decorators.csrf import csrf_exempt
 from django.conf import settings
-from rest_framework.authtoken.models import Token
 from django.contrib.auth import (
     REDIRECT_FIELD_NAME, login as auth_login,)
 from django.contrib.auth.forms import (
@@ -21,6 +19,17 @@ from django.shortcuts import resolve_url
 from django.template.response import TemplateResponse
 from django.utils.http import is_safe_url
 from rest_framework import generics
+from django.contrib.auth.decorators import login_required
+
+
+@login_required
+def home(request):
+    return HttpResponseRedirect(reverse(profile(request), args=[request.user.username]))
+
+
+def profile(request, user):
+    return render(request, 'testapp/profile.html', {"variable": user})
+
 
 @csrf_exempt
 def mobile_login(request, template_name='registration/login.html',
@@ -70,9 +79,7 @@ def success(request):
 
 
 def index(request):
-    print("Index")
     return render(request, 'testapp/index.html')
-
 
 
 class NonJSONUserList(generic.ListView):
