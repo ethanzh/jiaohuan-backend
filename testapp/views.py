@@ -4,15 +4,12 @@ from django.contrib.auth import authenticate, login
 from . forms import UserForm
 from django.core.urlresolvers import reverse
 from django.http import HttpResponse
-from django.views import generic
 from django.contrib.auth.models import User
 from . serializers import UserSerializer
 from django.views.decorators.csrf import csrf_exempt
 from django.conf import settings
-from django.contrib.auth import (
-    REDIRECT_FIELD_NAME, login as auth_login,)
-from django.contrib.auth.forms import (
-    AuthenticationForm)
+from django.contrib.auth import (REDIRECT_FIELD_NAME, login as auth_login,)
+from django.contrib.auth.forms import (AuthenticationForm)
 from django.contrib.sites.shortcuts import get_current_site
 from django.http import HttpResponseRedirect
 from django.shortcuts import resolve_url
@@ -82,13 +79,6 @@ def index(request):
     return render(request, 'testapp/index.html')
 
 
-class NonJSONUserList(generic.ListView):
-    template_name = 'testapp/list_of_users.html'
-
-    def get_queryset(self):
-        return User.objects.all()
-
-
 class UserFormView(View):
 
     form_class = UserForm
@@ -106,7 +96,6 @@ class UserFormView(View):
         if form.is_valid():
 
             user = form.save(commit=False)
-
 
             # cleaned (normalized) data
             username = form.cleaned_data['username']

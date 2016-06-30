@@ -11,29 +11,25 @@ app_name = "testapp"
 urlpatterns = [
 
     # Index
-    url(r'^', views.index, name='index'),
-
-    # List
-    url(r'^list/$', views.UserList.as_view(), name='list'),
+    url(r'^$', views.index, name='index'),
 
     # Register
     url(r'^register/$', views.UserFormView.as_view(), name='register'),
 
-    # Login
+    # Website Login
     url(r'^login/', auth_views.login,
         {'template_name': 'testapp/registration/login.html'}, name="login"),
 
-    # Login
-    url(r'^mobile_login/$', views.mobile_login, name="mobile_login"),
-
-
-    # Login
-    url(r'^mobile_login/success/', views.success, name="mobile_success"),
-
-    # Success
+    # Website Success
     url(r'^success/$', views.success, name='success'),
 
-    # JSON Data
+    # Phone Login
+    url(r'^mobile_login/$', views.mobile_login, name="mobile_login"),
+
+    # Phone Success
+    url(r'^mobile_login/success/', views.success, name="mobile_success"),
+
+    # Displays list of user accounts, authentication needed
     url(r'^json/$', views.UserList.as_view(), name='json'),
 
     # Helps obtain token when provided with username and password
