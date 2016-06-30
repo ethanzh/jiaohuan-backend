@@ -23,7 +23,7 @@ from rest_framework import permissions, routers, serializers, viewsets
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^users/', include('testapp.urls')),
+    url(r'^', include('testapp.urls')),
 
 
 ]
