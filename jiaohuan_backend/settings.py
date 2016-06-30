@@ -92,13 +92,24 @@ CSRF_COOKIE_SECURE = False
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'Jiaohuan',
+#         'USER': 'ethanzh',
+#         'PASSWORD': '38243874',
+#         'HOST': 'jiaohuandb.cxjkozqwlpoe.ap-northeast-1.rds.amazonaws.com',
+#         'PORT': '5432',
+#     }
+# }
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'Jiaohuan',
-        'USER': 'ethanzh',
+        'NAME': 'JH_Test',
+        'USER': 'postgres',
         'PASSWORD': '38243874',
-        'HOST': 'jiaohuandb.cxjkozqwlpoe.ap-northeast-1.rds.amazonaws.com',
+        'HOST': '127.0.0.1',
         'PORT': '5432',
     }
 }

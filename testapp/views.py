@@ -10,7 +10,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from django.views.decorators.csrf import csrf_exempt
 from django.conf import settings
-
+from rest_framework.authtoken.models import Token
 from django.contrib.auth import (
     REDIRECT_FIELD_NAME, login as auth_login,)
 from django.contrib.auth.forms import (
@@ -98,6 +98,8 @@ class UserFormView(View):
         if form.is_valid():
 
             user = form.save(commit=False)
+
+            Token.objects.create(user=user)
 
             # cleaned (normalized) data
             username = form.cleaned_data['username']

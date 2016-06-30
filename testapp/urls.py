@@ -4,6 +4,8 @@ from django.contrib.auth import views as auth_views
 from rest_framework.urlpatterns import format_suffix_patterns
 from django.views.decorators.csrf import csrf_exempt
 
+from rest_framework.authtoken import views as DRFviews
+
 app_name = "testapp"
 
 urlpatterns = [
@@ -36,11 +38,7 @@ urlpatterns = [
     # JSON Data
     url(r'^json/$', views.UserList.as_view(), name='json'),
 
-    #url(r'^api/', views.ApiEndpoint.as_view()),  # and also a resource server!
-
-     # Secret
-    #url(r'^secret/$', views.secret_page, name='secret'),
-
+    url(r'^api-token-auth/', DRFviews.obtain_auth_token),
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)
