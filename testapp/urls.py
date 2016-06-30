@@ -38,6 +38,7 @@ urlpatterns = [
     # JSON Data
     url(r'^json/$', views.UserList.as_view(), name='json'),
 
+
     url(r'^api-token-auth/', DRFviews.obtain_auth_token),
 ]
 

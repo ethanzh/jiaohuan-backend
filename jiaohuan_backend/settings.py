@@ -93,27 +93,27 @@ CSRF_COOKIE_SECURE = False
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': 'JiaohuanDB',
-#         'USER': 'ethanzh',
-#         'PASSWORD': '38243874',
-#         'HOST': 'jiaohuandb.cxjkozqwlpoe.ap-northeast-1.rds.amazonaws.com',
-#         'PORT': '5432',
-#     }
-# }
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'local_jiaohuan_database',
-        'USER': 'postgres',
+        'NAME': 'JiaohuanDB',
+        'USER': 'ethanzh',
         'PASSWORD': '38243874',
-        'HOST': '127.0.0.1',
+        'HOST': 'jiaohuandb.cxjkozqwlpoe.ap-northeast-1.rds.amazonaws.com',
         'PORT': '5432',
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'local_jiaohuan_database',
+#         'USER': 'postgres',
+#         'PASSWORD': '38243874',
+#         'HOST': '127.0.0.1',
+#         'PORT': '5432',
+#     }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/1.9/ref/settings/#auth-password-validators
