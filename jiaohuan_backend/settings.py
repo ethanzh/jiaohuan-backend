@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 import os
 import os.path
 
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -39,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'rest_framework.authtoken',
-    'corsheaders',
+    'testapp',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -95,7 +96,7 @@ CSRF_COOKIE_SECURE = False
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': 'Jiaohuan',
+#         'NAME': 'JiaohuanDB',
 #         'USER': 'ethanzh',
 #         'PASSWORD': '38243874',
 #         'HOST': 'jiaohuandb.cxjkozqwlpoe.ap-northeast-1.rds.amazonaws.com',
@@ -106,7 +107,7 @@ CSRF_COOKIE_SECURE = False
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'JH_Test',
+        'NAME': 'local_jiaohuan_database',
         'USER': 'postgres',
         'PASSWORD': '38243874',
         'HOST': '127.0.0.1',
@@ -147,6 +148,7 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
+
 
 
 STATIC_ROOT = ''

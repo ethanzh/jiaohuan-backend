@@ -22,7 +22,6 @@ from django.template.response import TemplateResponse
 from django.utils.http import is_safe_url
 from rest_framework import generics
 
-
 @csrf_exempt
 def mobile_login(request, template_name='registration/login.html',
                  redirect_field_name=REDIRECT_FIELD_NAME,
@@ -71,6 +70,7 @@ def success(request):
 
 
 def index(request):
+    print("Index")
     return render(request, 'testapp/index.html')
 
 
@@ -83,6 +83,7 @@ class NonJSONUserList(generic.ListView):
 
 
 class UserFormView(View):
+
     form_class = UserForm
     template_name = 'testapp/registration_form.html'
 
@@ -99,7 +100,6 @@ class UserFormView(View):
 
             user = form.save(commit=False)
 
-            Token.objects.create(user=user)
 
             # cleaned (normalized) data
             username = form.cleaned_data['username']
