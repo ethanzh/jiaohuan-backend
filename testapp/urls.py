@@ -11,7 +11,7 @@ app_name = "testapp"
 urlpatterns = [
 
     # Index
-    url(r'^$', views.index, name='index'),
+    url(r'^', views.index, name='index'),
 
     # Register
     url(r'^register/$', views.UserFormView.as_view(), name='register'),
@@ -30,7 +30,7 @@ urlpatterns = [
     url(r'^mobile_login/success/', views.success, name="mobile_success"),
 
     # Displays list of user accounts, authentication needed
-    url(r'^json/$', views.UserList.as_view(), name='json'),
+    url(r'^json/', views.UserList.as_view(), name='json'),
 
     # Helps obtain token when provided with username and password
     url(r'^api-token-auth/', DRFviews.obtain_auth_token),
