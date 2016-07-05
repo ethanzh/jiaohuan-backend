@@ -11,20 +11,20 @@ app_name = "testapp"
 urlpatterns = [
 
     # Index
-    url(r'^', views.index, name='index'),
+    url(r'^$', views.index, name='index'),
 
     # Register
-    url(r'^register/$', views.UserFormView.as_view(), name='register'),
+    url(r'^register/', views.UserFormView.as_view(), name='register'),
 
     # Website Login
     url(r'^login/', auth_views.login,
         {'template_name': 'testapp/registration/login.html'}, name="login"),
 
     # Website Success
-    url(r'^success/$', views.success, name='success'),
+    url(r'^success/', views.success, name='success'),
 
     # Phone Login
-    url(r'^mobile_login/$', views.mobile_login, name="mobile_login"),
+    url(r'^mobile_login/', views.mobile_login, name="mobile_login"),
 
     # Phone Success
     url(r'^mobile_login/success/', views.success, name="mobile_success"),
@@ -35,7 +35,7 @@ urlpatterns = [
     # Helps obtain token when provided with username and password
     url(r'^api-token-auth/', DRFviews.obtain_auth_token),
 
-    url(r'^profiles/home', views.home),
+    url(r'^profiles/home/', views.home),
 
 ]
 
