@@ -37,6 +37,8 @@ urlpatterns = [
 
     url(r'^profiles/home/', views.home),
 
+    url(r'^auth/', views.AuthView.as_view(), name='auth-view'),
+
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)
