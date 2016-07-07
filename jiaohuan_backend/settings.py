@@ -86,6 +86,8 @@ REST_FRAMEWORK = {
     )
 }
 
+
+
 WSGI_APPLICATION = 'jiaohuan_backend.wsgi.application'
 
 CSRF_COOKIE_SECURE = False
