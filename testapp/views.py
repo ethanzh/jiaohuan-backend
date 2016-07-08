@@ -93,7 +93,7 @@ def success(request):
 def index(request):
     return render(request, 'testapp/index.html')
 
-@csrf_exempt
+
 class UserFormView(View):
 
     form_class = UserForm
@@ -104,6 +104,7 @@ class UserFormView(View):
         form = self.form_class(None)
         return render(request, self.template_name, {'form': form})
 
+    @csrf_exempt
     # process form data
     def post(self, request):
         form = self.form_class(request.POST)
