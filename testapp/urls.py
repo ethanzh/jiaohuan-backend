@@ -23,9 +23,6 @@ urlpatterns = [
     # Website Success
     url(r'^success/', views.success, name='success'),
 
-    # Phone Login
-    url(r'^mobile_login/', views.mobile_login, name="mobile_login"),
-
     # Phone Success
     url(r'^mobile_login/success/', views.success, name="mobile_success"),
 
