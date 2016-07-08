@@ -16,6 +16,9 @@ urlpatterns = [
     # Register
     url(r'^register/', csrf_exempt(views.UserFormView.as_view()), name='register'),
 
+    # Phone Login
+    url(r'^mobile_register/', csrf_exempt(views.MobileUserFormView.as_view()), name='mobile_register'),
+
     # Website Login
     url(r'^login/', auth_views.login,
         {'template_name': 'testapp/registration/login.html'}, name="login"),
