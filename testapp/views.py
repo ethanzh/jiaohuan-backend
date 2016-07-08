@@ -93,7 +93,7 @@ def success(request):
 def index(request):
     return render(request, 'testapp/index.html')
 
-
+@csrf_exempt
 class UserFormView(View):
 
     form_class = UserForm
