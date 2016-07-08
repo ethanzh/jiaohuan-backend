@@ -104,7 +104,7 @@ class MobileUserFormView(View):
     # display blank form
     def get(self, request):
         form = self.form_class(None)
-        return render(request, self.template_name, {'form': form})
+        return HttpResponse(200)
 
     @csrf_exempt
     # process form data
