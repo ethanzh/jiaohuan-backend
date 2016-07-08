@@ -133,4 +133,4 @@ class MobileUserFormView(View):
 
                     return redirect('testapp:index')
 
-        return render(request, self.template_name, {'form': form})
+        return HttpResponse(200)
