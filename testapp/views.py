@@ -131,6 +131,6 @@ class MobileUserFormView(View):
 
                     login(request, user)
 
-                    return redirect('testapp:index')
+                    return HttpResponse(200)
 
-        return HttpResponse(200)
+        return HttpResponse("Not found")
