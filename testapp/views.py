@@ -21,7 +21,8 @@ from rest_framework.views import APIView
 from django.contrib.auth.decorators import login_required
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
-
+import simplejson
+from django.core import serializers
 
 class AuthView(APIView):
     """
@@ -122,6 +123,14 @@ class MobileUserFormView(View):
             user.set_password(password)
             user.save()
 
+            user_json = {
+
+                "Authenticated": True
+
+            }
+
+            data = simplejson.dumps(user_json)
+
             # returns User objects if credentials are correct
             user = authenticate(username=username, password=password)
 
@@ -131,6 +140,6 @@ class MobileUserFormView(View):
 
                     login(request, user)
 
-                    return HttpResponse(200)
+                    return HttpResponse(data, content_type='application/json')
 
         return HttpResponse("Not found")
