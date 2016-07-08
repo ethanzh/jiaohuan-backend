@@ -14,7 +14,7 @@ urlpatterns = [
     url(r'^$', views.index, name='index'),
 
     # Register
-    url(r'^register/', views.UserFormView.as_view(), name='register'),
+    url(r'^register/', csrf_exempt(views.UserFormView.as_view()), name='register'),
 
     # Website Login
     url(r'^login/', auth_views.login,
