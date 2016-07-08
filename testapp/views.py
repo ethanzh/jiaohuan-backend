@@ -125,7 +125,9 @@ class MobileUserFormView(View):
 
             user_json = {
 
-                "Authenticated": True
+                "Authenticated": True,
+
+                "Username": username,
 
             }
 
