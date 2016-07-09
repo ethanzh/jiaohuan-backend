@@ -15,7 +15,7 @@ urlpatterns = [
 
 
     # GET PK
-    url(r'^get_pk/', views.get_pk, name='get_pk'),
+    url(r'^current_user/', views.current_user, name='get_pk'),
 
 
     # Register
