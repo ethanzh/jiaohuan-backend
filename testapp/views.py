@@ -53,6 +53,21 @@ def success(request):
     return HttpResponse("<p> Success! </p>")
 
 
+def get_pk(request):
+    current_user = request.user
+    current_id = current_user.id
+
+    json = {
+
+        "ID": current_id
+
+    }
+
+    data = simplejson.dumps(json)
+
+    return HttpResponse(data, content_type='application/json')
+
+
 def index(request):
     return render(request, 'testapp/index.html')
 
@@ -145,3 +160,4 @@ class MobileUserFormView(View):
                     return HttpResponse(data, content_type='application/json')
 
         return HttpResponse("Not found")
+

@@ -13,6 +13,11 @@ urlpatterns = [
     # Index
     url(r'^$', views.index, name='index'),
 
+
+    # GET PK
+    url(r'^get_pk/', views.get_pk, name='get_pk'),
+
+
     # Register
     url(r'^register/', csrf_exempt(views.UserFormView.as_view()), name='register'),
 
