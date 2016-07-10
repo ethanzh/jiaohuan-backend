@@ -160,8 +160,10 @@ def edit_email(request):
 
     final = request.POST['email']
 
-    pk = request.POST['id_number']
+    id_number = request.POST['id_number']
     print(request.POST['id_number'])
+
+    userDetails = User.objects.get(pk=id_number)
     # userDetails = User.objects.get(pk=request.user.id)
     # userDetails.email = request.POST['email']
     # userDetails.save()
@@ -169,7 +171,7 @@ def edit_email(request):
     json = {
 
         "final": final,
-        "id": pk
+        "id": id_number
     }
 
     data = simplejson.dumps(json)
