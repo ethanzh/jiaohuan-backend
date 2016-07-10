@@ -168,3 +168,19 @@ class MobileUserFormView(View):
 
         return HttpResponse("Not found")
 
+
+def edit_email(request):
+    initial = request.user.email
+    final = request.POST['email']
+    userDetails = User.objects.get(pk=request.user.id)
+    userDetails.email = request.POST['email']
+    userDetails.save()
+
+    json = {
+        "initial": initial,
+        "final": final
+    }
+
+    data = simplejson.dumps(json)
+
+    return HttpResponse(data, content_type='application/json')
