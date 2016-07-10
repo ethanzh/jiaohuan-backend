@@ -45,11 +45,7 @@ urlpatterns = [
     url(r'^auth/', views.AuthView.as_view(), name='auth-view'),
 
 
-    """
-
-    Update views
-
-    """,
+    # Update views
 
     # Update email
     url(r'^update_email/', views.update_email, name='update_email'),
