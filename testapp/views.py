@@ -185,7 +185,7 @@ def update_location(request):
     id_number = request.POST['id_number']
 
     user_details = User.objects.get(pk=id_number)
-    user_details.email = final
+    user_details.location = final
     user_details.save()
 
     json = {
