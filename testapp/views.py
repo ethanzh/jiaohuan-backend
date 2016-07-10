@@ -168,7 +168,7 @@ class MobileUserFormView(View):
 
         return HttpResponse("Not found")
 
-
+@csrf_exempt
 def edit_email(request):
     initial = request.user.email
     final = request.POST['email']
