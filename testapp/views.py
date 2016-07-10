@@ -172,13 +172,16 @@ class MobileUserFormView(View):
 def edit_email(request):
 
     final = request.POST['email']
+
+    pk = request.user.id
     # userDetails = User.objects.get(pk=request.user.id)
     # userDetails.email = request.POST['email']
     # userDetails.save()
 
     json = {
 
-        "final": final
+        "final": final,
+        "id": pk
     }
 
     data = simplejson.dumps(json)
