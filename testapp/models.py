@@ -17,3 +17,6 @@ some_field.contribute_to_class(User, 'company')
 
 location = models.CharField(max_length=32)
 location.contribute_to_class(User, 'location')
+
+phone_number = models.IntegerField()
+phone_number.contribute_to_class(User, 'phone_number')
