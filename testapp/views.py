@@ -172,9 +172,9 @@ class MobileUserFormView(View):
 def edit_email(request):
 
     final = request.POST['email']
-    userDetails = User.objects.get(pk=request.user.id)
-    userDetails.email = request.POST['email']
-    userDetails.save()
+    # userDetails = User.objects.get(pk=request.user.id)
+    # userDetails.email = request.POST['email']
+    # userDetails.save()
 
     json = {
 
