@@ -13,3 +13,6 @@ def create_auth_token(sender, instance=None, created=False, **kwargs):
 
 some_field = models.CharField(max_length=32)
 some_field.contribute_to_class(User, 'company')
+
+location = models.CharField(max_length=32)
+location.contribute_to_class(User, 'location')
