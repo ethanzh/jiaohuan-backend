@@ -132,7 +132,7 @@ class MobileUserFormView(View):
 
             user.set_password(password)
 
-            user.phone_number = phone_number
+            print(phone_number)
             user.save()
 
             user_json = {
@@ -141,7 +141,6 @@ class MobileUserFormView(View):
 
                 "Username": username,
 
-                "Phone Number": phone_number
 
             }
 
