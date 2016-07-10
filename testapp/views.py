@@ -160,7 +160,8 @@ def edit_email(request):
 
     final = request.POST['email']
 
-    pk = request.user.id
+    pk = request.POST['id_number']
+    print(request.POST['id_number'])
     # userDetails = User.objects.get(pk=request.user.id)
     # userDetails.email = request.POST['email']
     # userDetails.save()
