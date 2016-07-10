@@ -23,8 +23,8 @@ from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
 import simplejson
 from rest_framework.decorators import api_view
-
 from django.core import serializers
+
 
 class AuthView(APIView):
     """
@@ -54,20 +54,6 @@ class UserList(generics.ListCreateAPIView):
 def success(request):
     return HttpResponse("<p> Success! </p>")
 
-
-# def get_pk(request):
-#     current_user = request.user
-#     current_id = current_user.id
-#
-#     json = {
-#
-#         "ID": current_id
-#
-#     }
-#
-#     data = simplejson.dumps(json)
-#
-#     return HttpResponse(data, content_type='application/json')
 
 @api_view(['GET'])
 def current_user(request):
@@ -167,6 +153,7 @@ class MobileUserFormView(View):
                     return HttpResponse(data, content_type='application/json')
 
         return HttpResponse("Not found")
+
 
 @csrf_exempt
 def edit_email(request):
