@@ -156,23 +156,41 @@ class MobileUserFormView(View):
 
 
 @csrf_exempt
-def edit_email(request):
+def update_email(request):
 
     final = request.POST['email']
 
     id_number = request.POST['id_number']
-    print(request.POST['id_number'])
 
     user_details = User.objects.get(pk=id_number)
-
-    # userDetails = User.objects.get(pk=request.user.id)
-
     user_details.email = final
     user_details.save()
 
     json = {
 
-        "final": final,
+        "Email": final,
+        "id": id_number
+    }
+
+    data = simplejson.dumps(json)
+
+    return HttpResponse(data, content_type='application/json')
+
+
+@csrf_exempt
+def update_location(request):
+
+    final = request.POST['location']
+
+    id_number = request.POST['id_number']
+
+    user_details = User.objects.get(pk=id_number)
+    user_details.email = final
+    user_details.save()
+
+    json = {
+
+        "Location": final,
         "id": id_number
     }
 

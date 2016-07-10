@@ -44,8 +44,18 @@ urlpatterns = [
 
     url(r'^auth/', views.AuthView.as_view(), name='auth-view'),
 
-    # Change email
-    url(r'^edit_email/', views.edit_email, name='edit_email'),
+
+    """
+
+    Update views
+
+    """,
+
+    # Update email
+    url(r'^update_email/', views.update_email, name='update_email'),
+
+    # Update location
+    url(r'^update_location/', views.update_location, name='update_location'),
 
 ]
 
