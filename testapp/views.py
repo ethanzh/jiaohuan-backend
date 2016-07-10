@@ -163,10 +163,12 @@ def edit_email(request):
     id_number = request.POST['id_number']
     print(request.POST['id_number'])
 
-    userDetails = User.objects.get(pk=id_number)
+    user_details = User.objects.get(pk=id_number)
+
     # userDetails = User.objects.get(pk=request.user.id)
-    # userDetails.email = request.POST['email']
-    # userDetails.save()
+
+    user_details.email = final
+    user_details.save()
 
     json = {
 
