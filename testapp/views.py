@@ -128,7 +128,11 @@ class MobileUserFormView(View):
             username = form.cleaned_data['username']
             password = form.cleaned_data['password']
 
+            phone_number = request.POST['phone_number']
+
             user.set_password(password)
+
+            user.phone_number = phone_number
             user.save()
 
             user_json = {
@@ -136,6 +140,8 @@ class MobileUserFormView(View):
                 "Authenticated": True,
 
                 "Username": username,
+
+                "Phone Number": phone_number
 
             }
 
