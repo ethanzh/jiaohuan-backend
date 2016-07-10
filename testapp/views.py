@@ -170,14 +170,14 @@ class MobileUserFormView(View):
 
 @csrf_exempt
 def edit_email(request):
-    initial = request.user.email
+
     final = request.POST['email']
     userDetails = User.objects.get(pk=request.user.id)
     userDetails.email = request.POST['email']
     userDetails.save()
 
     json = {
-        "initial": initial,
+
         "final": final
     }
 
