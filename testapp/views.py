@@ -120,6 +120,18 @@ class MobileUserFormView(View):
     def post(self, request):
         form = self.form_class(request.POST)
 
+        error = form.errors;
+        form_error = form.non_field_errors();
+
+        error_json = {
+
+            "form": error,
+            "form_error": form_error
+
+        }
+
+        error_data = simplejson.dumps(error_json)
+
         if form.is_valid():
 
             user = form.save(commit=False)
@@ -128,9 +140,6 @@ class MobileUserFormView(View):
             username = form.cleaned_data['username']
             password = form.cleaned_data['password']
             user.set_password(password)
-
-
-
             user.save()
 
             user_json = {
@@ -155,7 +164,7 @@ class MobileUserFormView(View):
 
                     return HttpResponse(data, content_type='application/json')
 
-        return HttpResponse("Not found")
+        return HttpResponse(error_data, content_type='application/json')
 
 
 @csrf_exempt
