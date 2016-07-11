@@ -127,12 +127,10 @@ class MobileUserFormView(View):
             # cleaned (normalized) data
             username = form.cleaned_data['username']
             password = form.cleaned_data['password']
-
-            phone_number = request.POST['phone_number']
-
             user.set_password(password)
 
-            print(phone_number)
+
+
             user.save()
 
             user_json = {
