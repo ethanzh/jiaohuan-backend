@@ -120,6 +120,9 @@ class MobileUserFormView(View):
     def post(self, request):
         form = self.form_class(request.POST)
 
+        phone_number = request.POST['phone_number']
+        print(phone_number)
+
         error = form.errors;
         form_error = form.non_field_errors();
 
