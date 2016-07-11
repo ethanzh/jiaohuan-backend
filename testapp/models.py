@@ -12,11 +12,11 @@ def create_auth_token(sender, instance=None, created=False, **kwargs):
     if created:
         Token.objects.create(user=instance)
 
-some_field = models.CharField(max_length=32)
+some_field = models.CharField(max_length=32, blank=True)
 some_field.contribute_to_class(User, 'company')
 
-location = models.CharField(max_length=32)
+location = models.CharField(max_length=32, blank=True)
 location.contribute_to_class(User, 'location')
 
-phone_number = models.IntegerField()
+phone_number = models.IntegerField(blank=True)
 phone_number.contribute_to_class(User, 'phone_number')
