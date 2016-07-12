@@ -47,6 +47,12 @@ urlpatterns = [
 
     # Update views
 
+    # Update Company
+    url(r'^update_company/', views.update_company, name='update_company'),
+
+    # Update Phone
+    url(r'^update_phone/', views.update_phone, name='update_phone'),
+
     # Update email
     url(r'^update_email/', views.update_email, name='update_email'),
 

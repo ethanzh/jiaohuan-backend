@@ -168,11 +168,31 @@ class MobileUserFormView(View):
 
 
 @csrf_exempt
+def update_company(request):
+
+    final = request.POST['company']
+
+    id_number = request.POST['id_number']
+
+    user_details = User.objects.get(pk=id_number)
+    user_details.location = final
+    user_details.save()
+
+    json = {
+
+        "Company": final,
+        "id": id_number
+    }
+
+    data = simplejson.dumps(json)
+
+    return HttpResponse(data, content_type='application/json')
+
+
+@csrf_exempt
 def update_email(request):
 
     final = request.POST['email']
-
-    print(request.POST['phone_number'])
 
     id_number = request.POST['id_number']
 
@@ -183,6 +203,28 @@ def update_email(request):
     json = {
 
         "Email": final,
+        "id": id_number
+    }
+
+    data = simplejson.dumps(json)
+
+    return HttpResponse(data, content_type='application/json')
+
+
+@csrf_exempt
+def update_phone(request):
+
+    final = request.POST['phone_number']
+
+    id_number = request.POST['id_number']
+
+    user_details = User.objects.get(pk=id_number)
+    user_details.location = final
+    user_details.save()
+
+    json = {
+
+        "Phone Number": final,
         "id": id_number
     }
 
