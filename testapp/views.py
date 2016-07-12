@@ -175,7 +175,7 @@ def update_company(request):
     id_number = request.POST['id_number']
 
     user_details = User.objects.get(pk=id_number)
-    user_details.location = final
+    user_details.company = final
     user_details.save()
 
     json = {
@@ -219,7 +219,7 @@ def update_phone(request):
     id_number = request.POST['id_number']
 
     user_details = User.objects.get(pk=id_number)
-    user_details.location = final
+    user_details.phone_number = final
     user_details.save()
 
     json = {
