@@ -120,8 +120,6 @@ class MobileUserFormView(View):
     def post(self, request):
         form = self.form_class(request.POST)
 
-
-
         error = form.errors;
         form_error = form.non_field_errors();
 
@@ -173,6 +171,8 @@ class MobileUserFormView(View):
 def update_email(request):
 
     final = request.POST['email']
+
+    print(request.POST['phone_number'])
 
     id_number = request.POST['id_number']
 
