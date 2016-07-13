@@ -8,6 +8,6 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         # Removed password
-        fields = ['id', 'username', 'phone_number', 'email', 'first_name', 'last_name', 'is_staff', 'date_joined',
-                  'company', 'location']
+        fields = ['id', 'username', 'phone_number', 'company', 'location', 'email', 'first_name', 'last_name',
+                  'is_staff', 'date_joined']
 
