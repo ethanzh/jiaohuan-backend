@@ -253,3 +253,34 @@ def update_location(request):
     data = simplejson.dumps(json)
 
     return HttpResponse(data, content_type='application/json')
+
+
+@csrf_exempt
+def update_user_info(request):
+
+    id_number = request.POST['id_number']
+    request_email = request.POST['email']
+    request_phone_number = request.POST['phone_number']
+    request_location = request.POST['location']
+    request_company = request.POST['company']
+
+    user_detail = User.objects.get(pk=id_number)
+
+    user_detail.email = request_email
+    user_detail.phone_number = request_phone_number
+    user_detail.location = request_location
+    user_detail.company = request_company
+
+    user_detail.save()
+
+    json = {
+        "ID": id_number,
+        "Email": request_email,
+        "Phone Number": request_phone_number,
+        "Location": request_location,
+        "Company": request_company
+    }
+
+    data = simplejson.dumps(json)
+
+    return HttpResponse(data, content_type='application/json')

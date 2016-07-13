@@ -59,6 +59,9 @@ urlpatterns = [
     # Update location
     url(r'^update_location/', views.update_location, name='update_location'),
 
+    # Update all
+    url(r'^update/', views.update_user_info, name='update_user_info'),
+
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)
