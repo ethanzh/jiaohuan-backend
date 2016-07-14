@@ -24,13 +24,15 @@ from rest_framework.permissions import IsAuthenticated
 import simplejson
 from rest_framework.decorators import api_view
 from django.core import serializers
+# Python logging package
 import logging
 
-logger = logging.getLogger(__name__)
+# Standard instance of a logger with __name__
+stdlogger = logging.getLogger(__name__)
 
 
 def log_function():
-    logger.debug("this is a debug message!")
+    stdlogger.debug("this is a debug message!")
 
 
 class AuthView(APIView):
