@@ -266,29 +266,31 @@ def update_user_info(request):
 
     user_detail = User.objects.get(pk=id_number)
 
+    print("Fields:\n")
+
     if request_email == "":
-        print("Email is blank")
+        print("Email = False")
     elif request_email != "":
-        print("Email is NOT blank")
+        print("Email = True")
         user_detail.email = request_email
 
     if request_phone_number == "":
-        print("Phone number is blank")
+        print("Phone number = False")
     elif request_phone_number != "":
-        print("Email is NOT blank")
+        print("Phone number = True")
         user_detail.phone_number = request_phone_number
 
     if request_location == "":
-        print("Location is blank")
+        print("Location = False")
     elif request_location != "":
-        print("Location is NOT blank")
+        print("Location = True")
         user_detail.location = request_location
 
     if request_company == "":
-        print("Company is blank")
+        print("Company = False")
 
     elif request_company != "":
-        print("Company is NOT blank")
+        print("Company = True")
         user_detail.company = request_company
 
     user_detail.save()
