@@ -172,7 +172,7 @@ LOGGING = {
             'level': 'DEBUG',
             'filters': ['require_debug_true'],
             'class': 'logging.FileHandler',
-            'filename': '/tmp/django_dev.log',
+            'filename': 'django_dev.log',
             'formatter': 'verbose'
         },
 
