@@ -266,7 +266,13 @@ def update_user_info(request):
 
     user_detail = User.objects.get(pk=id_number)
 
+    if request_email == "":
+        print("Email is blank")
+    elif request_email != "":
+        print("Email is NOT blank")
+
     user_detail.email = request_email
+
     user_detail.phone_number = request_phone_number
     user_detail.location = request_location
     user_detail.company = request_company
