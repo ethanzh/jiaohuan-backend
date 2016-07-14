@@ -178,11 +178,11 @@ LOGGING = {
     },
     'loggers': {
         'django': {
-            'handlers':['file'],
+            'handlers': ['file'],
             'propagate': True,
-            'level':'DEBUG',
+            'level': 'DEBUG',
         },
-        'MYAPP': {
+        'testapp': {
             'handlers': ['file'],
             'level': 'DEBUG',
         },
