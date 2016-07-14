@@ -28,7 +28,7 @@ from django.core import serializers
 import logging
 
 # Standard instance of a logger with __name__
-stdlogger = logging.getLogger(__name__)
+stdlogger = logging.getLogger("dev_log")
 
 
 def log_function():

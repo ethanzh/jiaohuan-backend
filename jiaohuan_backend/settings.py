@@ -13,7 +13,6 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 import os
 import os.path
 
-
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -55,9 +54,6 @@ MIDDLEWARE_CLASSES = [
     'corsheaders.middleware.CorsMiddleware',
 ]
 
-
-
-
 CORS_ORIGIN_ALLOW_ALL = True
 
 ROOT_URLCONF = 'jiaohuan_backend.urls'
@@ -88,8 +84,6 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.TokenAuthentication',
     )
 }
-
-
 
 WSGI_APPLICATION = 'jiaohuan_backend.wsgi.application'
 
@@ -160,30 +154,20 @@ LOGGING = {
     'version': 1,
     'disable_existing_loggers': True,
     'filters': {
-        'require_debug_false': {
-            '()': 'django.utils.log.RequireDebugFalse',
-        },
         'require_debug_true': {
             '()': 'django.utils.log.RequireDebugTrue',
         },
     },
+
     'formatters': {
-        'simple': {
-            'format': '[%(asctime)s] %(levelname)s %(message)s',
-	    'datefmt': '%Y-%m-%d %H:%M:%S'
-        },
         'verbose': {
             'format': '[%(asctime)s] %(levelname)s [%(name)s.%(funcName)s:%(lineno)d] %(message)s',
-	    'datefmt': '%Y-%m-%d %H:%M:%S'
+            'datefmt': '%Y-%m-%d %H:%M:%S'
         },
     },
+
     'handlers': {
-        'console': {
-            'level': 'DEBUG',
-            'filters': ['require_debug_true'],
-            'class': 'logging.StreamHandler',
-            'formatter': 'simple'
-        },
+
         'development_logfile': {
             'level': 'DEBUG',
             'filters': ['require_debug_true'],
@@ -191,33 +175,11 @@ LOGGING = {
             'filename': '/tmp/django_dev.log',
             'formatter': 'verbose'
         },
-        'production_logfile': {
-            'level': 'ERROR',
-            'filters': ['require_debug_false'],
-            'class': 'logging.FileHandler',
-            'filename': '/var/log/django_production.log',
-            'formatter': 'simple'
-        },
-        'dba_logfile': {
-            'level': 'DEBUG',
-            'filters': ['require_debug_false','require_debug_true'],
-            'class': 'logging.FileHandler',
-            'filename': '/var/log/django_dba.log',
-            'formatter': 'simple'
-        },
+
     },
     'loggers': {
-        'coffeehouse': {
-            'handlers': ['console','development_logfile','production_logfile'],
-         },
-        'dba': {
-            'handlers': ['console','dba_logfile'],
-        },
-        'django': {
-            'handlers': ['console','development_logfile','production_logfile'],
-        },
-        'py.warnings': {
-            'handlers': ['console','development_logfile'],
+        'dev_log': {
+            'handlers': ['development_logfile'],
         },
     }
 }
