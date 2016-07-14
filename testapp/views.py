@@ -266,7 +266,7 @@ def update_user_info(request):
 
     user_detail = User.objects.get(pk=id_number)
 
-    print("Fields:\n")
+    print("\nFields:")
 
     if request_email == "":
         print("Email = False")
