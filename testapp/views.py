@@ -270,12 +270,26 @@ def update_user_info(request):
         print("Email is blank")
     elif request_email != "":
         print("Email is NOT blank")
+        user_detail.email = request_email
 
-    user_detail.email = request_email
+    if request_phone_number == "":
+        print("Phone number is blank")
+    elif request_phone_number != "":
+        print("Email is NOT blank")
+        user_detail.phone_number = request_phone_number
 
-    user_detail.phone_number = request_phone_number
-    user_detail.location = request_location
-    user_detail.company = request_company
+    if request_location == "":
+        print("Location is blank")
+    elif request_location != "":
+        print("Location is NOT blank")
+        user_detail.location = request_location
+
+    if request_company == "":
+        print("Company is blank")
+
+    elif request_company != "":
+        print("Company is NOT blank")
+        user_detail.company = request_company
 
     user_detail.save()
 
