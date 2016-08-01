@@ -95,10 +95,10 @@ CSRF_COOKIE_SECURE = False
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'JiaohuanDB',
+        'NAME': 'jh',
         'USER': 'ethanzh',
         'PASSWORD': '38243874',
-        'HOST': 'jiaohuandb.cxjkozqwlpoe.ap-northeast-1.rds.amazonaws.com',
+        'HOST': 'jiaohuandatabase.cxjkozqwlpoe.ap-northeast-1.rds.amazonaws.com',
         'PORT': '5432',
     }
 }
