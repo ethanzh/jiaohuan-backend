@@ -12,20 +12,20 @@ def create_auth_token(sender, instance=None, created=False, **kwargs):
     if created:
         Token.objects.create(user=instance)
 
-# some_field = models.CharField(max_length=32, blank=True, null=True)
-# some_field.contribute_to_class(User, 'company')
+some_field = models.CharField(max_length=32, blank=True, null=True)
+some_field.contribute_to_class(User, 'company')
 #
-# location = models.CharField(max_length=32, blank=True)
-# location.contribute_to_class(User, 'location')
+location = models.CharField(max_length=32, blank=True)
+location.contribute_to_class(User, 'location')
 #
-# phone_number = models.CharField(max_length=32, blank=True, null=True)
-# phone_number.contribute_to_class(User, 'phone_number')
+phone_number = models.CharField(max_length=32, blank=True, null=True)
+phone_number.contribute_to_class(User, 'phone_number')
 #
-# info = models.CharField(max_length=1024, blank=True, null=True)
-# info.contribute_to_class(User, 'info')
+info = models.CharField(max_length=1024, blank=True, null=True)
+info.contribute_to_class(User, 'info')
 #
-# title = models.CharField(max_length=128, blank=True, null=True)
-# title.contribute_to_class(User, 'title')
+title = models.CharField(max_length=128, blank=True, null=True)
+title.contribute_to_class(User, 'title')
 #
-# website = models.CharField(max_length=128, blank=True, null=True)
-# website.contribute_to_class(User, 'website')
+website = models.CharField(max_length=128, blank=True, null=True)
+website.contribute_to_class(User, 'website')

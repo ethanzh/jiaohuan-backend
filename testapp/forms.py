@@ -8,8 +8,8 @@ class UserForm(forms.ModelForm):
 
     class Meta:
         model = User
-        # fields = ['username', 'phone_number', 'company', 'location', 'email', 'first_name', 'last_name',
-        #           'website', 'title', 'info']
-        fields = ['username']
+        fields = ['username', 'phone_number', 'company', 'location', 'email', 'first_name', 'last_name',
+                  'website', 'title', 'info']
+
 
 
