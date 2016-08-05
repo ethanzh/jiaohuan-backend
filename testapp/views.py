@@ -89,7 +89,8 @@ class AuthView(APIView):
     print(IsAuthenticated)
 
     def get(self, request, format=None):
-        return Response({'detail': "I suppose you are authenticated"})
+        return Response({'detail': "I suppose you are authenticated",
+                         "is_auth": IsAuthenticated})
 
 
 @login_required
