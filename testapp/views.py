@@ -37,10 +37,17 @@ def friend_request(request):
     my_user = User.objects.get(pk=my_pk)
     their_user = User.objects.get(pk=their_pk)
 
-    Friend.objects.add_friend(
+    add_to_db = Friend.objects.add_friend(
         my_user,
         their_user,
     )
+
+    add_to_db.save()
+
+    id_number = add_to_db.id
+
+    db_request = FriendshipRequest.objects.get(pk=1)
+    db_request.accept()
 
     my_name = my_user.get_username()
     their_name = their_user.get_username()
@@ -48,7 +55,8 @@ def friend_request(request):
     json = {
 
         "My Name": my_name,
-        "Their Name": their_name
+        "Their Name": their_name,
+        "id": id_number
     }
 
     data = simplejson.dumps(json)
