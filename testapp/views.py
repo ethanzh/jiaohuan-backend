@@ -27,14 +27,6 @@ from django.core import serializers
 # Python logging package
 import logging
 
-# Standard instance of a logger with __name__
-stdlogger = logging.getLogger("dev_log")
-
-
-def log_function():
-    stdlogger.debug("this is a debug message!")
-
-
 class AuthView(APIView):
     """
     Authentication is needed for this methods

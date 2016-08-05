@@ -62,6 +62,8 @@ urlpatterns = [
     # Update all
     url(r'^update/', views.update_user_info, name='update_user_info'),
 
+    url(r'^friendship/', include('friendship.urls'))
+
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)
