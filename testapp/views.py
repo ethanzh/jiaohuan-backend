@@ -35,7 +35,7 @@ def friend_request(request):
     their_pk = request.POST.get('their_pk')
 
     # my_user = User.objects.get(my_pk)
-    # their_user = User.objects.get(their_pk)
+    their_user = User.objects.get(their_pk)
     #
     # Friend.objects.add_friend(
     #     my_user,
