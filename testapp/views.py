@@ -51,7 +51,6 @@ def friend_request(request):
     #     to_user=their_user
     # )
 
-    id_number = 0
 
     # db_request = FriendshipRequest.objects.get(pk=1)
     # db_request.accept()
