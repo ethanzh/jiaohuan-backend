@@ -86,6 +86,8 @@ class AuthView(APIView):
     authentication_classes = (TokenAuthentication,)
     permission_classes = (IsAuthenticated,)
 
+    print(IsAuthenticated)
+
     def get(self, request, format=None):
         return Response({'detail': "I suppose you are authenticated"})
 
