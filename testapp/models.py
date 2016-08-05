@@ -13,12 +13,6 @@ def create_auth_token(sender, instance=None, created=False, **kwargs):
         Token.objects.create(user=instance)
 
 
-class Friendship(models.Model):
-    created = models.DateTimeField(auto_now_add=True, editable=False)
-    user_a = models.ForeignKey(User, related_name="UserA")
-    user_b = models.ForeignKey(User, related_name="UserB")
-
-
 # Fields added to Auth User
 
 some_field = models.CharField(max_length=32, blank=True, null=True)

@@ -23,9 +23,40 @@ from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
 import simplejson
 from rest_framework.decorators import api_view
+from friendship.models import Friend, Follow
+from friendship.models import FriendshipRequest
 from django.core import serializers
 # Python logging package
 import logging
+
+
+@csrf_exempt
+def friend_request(request):
+
+    my_pk = request.POST['my_pk']
+    their_pk = request.POST['their_pk']
+
+    my_user = User.objects.get(my_pk)
+    their_user = User.objects.get(their_pk)
+
+    Friend.objects.add_friend(
+        my_user,
+        their_user,
+    )
+
+    my_name = my_user.get_username()
+    their_name = their_user.get_username()
+
+    json = {
+
+        "My Name": my_name,
+        "Their Name": their_name
+    }
+
+    data = simplejson.dumps(json)
+
+    return HttpResponse(data, content_type='application/json')
+
 
 class AuthView(APIView):
     """

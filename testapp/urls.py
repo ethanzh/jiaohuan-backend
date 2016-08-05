@@ -62,8 +62,9 @@ urlpatterns = [
     # Update all
     url(r'^update/', views.update_user_info, name='update_user_info'),
 
-    url(r'^friendship/', include('friendship.urls'))
+    url(r'^friendship/', include('friendship.urls')),
 
+    url(r'^add_friend/', views.friend_request, name='add_friend'),
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)
