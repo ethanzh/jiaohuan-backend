@@ -37,14 +37,15 @@ def friend_request(request):
     my_user = User.objects.get(pk=my_pk)
     their_user = User.objects.get(pk=their_pk)
 
-    add_to_db = Friend.objects.add_friend(
-        my_user,
-        their_user,
-    )
+    # add_to_db = Friend.objects.add_friend(
+    #     my_user,
+    #     their_user,
+    # )
+    #
+    # add_to_db.save()
 
-    add_to_db.save()
-
-    id_number = add_to_db.id
+    #id_number = add_to_db.id
+    id_number = 1
 
     db_request = FriendshipRequest.objects.get(pk=1)
     db_request.accept()
