@@ -31,8 +31,8 @@ from django.core import serializers
 @csrf_exempt
 def friend_request(request):
 
-    my_pk = request.POST['my_pk']
-    their_pk = request.POST['their_pk']
+    my_pk = request.POST.get('my_pk')
+    their_pk = request.POST.get('their_pk')
 
     my_user = User.objects.get(my_pk)
     their_user = User.objects.get(their_pk)
