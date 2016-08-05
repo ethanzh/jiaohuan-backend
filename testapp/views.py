@@ -42,12 +42,12 @@ def friend_request(request):
     #     their_user,
     # )
 
-    adding_friend = FriendshipRequest.objects.get_or_create(
+    FriendshipRequest.objects.get_or_create(
         from_user=my_user,
         to_user=their_user
     )
-    adding_friend.save()
-    id_number = adding_friend.pk
+
+    id_number = 0
 
     # db_request = FriendshipRequest.objects.get(pk=1)
     # db_request.accept()
