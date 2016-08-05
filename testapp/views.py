@@ -34,26 +34,26 @@ def friend_request(request):
     my_pk = request.POST.get('my_pk')
     their_pk = request.POST.get('their_pk')
 
-    my_user = User.objects.get(my_pk)
-    their_user = User.objects.get(their_pk)
-
-    Friend.objects.add_friend(
-        my_user,
-        their_user,
-    )
-
-    my_name = my_user.get_username()
-    their_name = their_user.get_username()
+    # my_user = User.objects.get(my_pk)
+    # their_user = User.objects.get(their_pk)
+    #
+    # Friend.objects.add_friend(
+    #     my_user,
+    #     their_user,
+    # )
+    #
+    # my_name = my_user.get_username()
+    # their_name = their_user.get_username()
 
     json = {
 
-        "My Name": my_name,
-        "Their Name": their_name
+        "My Name": my_pk,
+        "Their Name": their_pk
     }
 
     data = simplejson.dumps(json)
 
-    print("My name: " + my_name + "\nTheir Name: " + their_name)
+    print("My name: " + my_pk + "\nTheir Name: " + their_pk)
 
     return HttpResponse(data, content_type='application/json')
 
