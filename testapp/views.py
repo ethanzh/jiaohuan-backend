@@ -22,7 +22,7 @@ from friendship.models import FriendshipRequest
 
 @csrf_exempt
 def get_friends_list(request):
-    my_pk = int(request.POST['my_pk'])
+    my_pk = int(request.GET['my_pk'])
     my_user = User.objects.get(pk=my_pk)
     all_friends = Friend.objects.friends(my_user)
 

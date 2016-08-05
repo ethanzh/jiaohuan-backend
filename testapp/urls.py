@@ -65,6 +65,9 @@ urlpatterns = [
     url(r'^friendship/', include('friendship.urls')),
 
     url(r'^add_friend/', views.friend_request, name='add_friend'),
+
+    url(r'^my_friends/', views.get_friends_list, name='list_friends'),
+
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)
