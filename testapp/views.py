@@ -26,8 +26,6 @@ from rest_framework.decorators import api_view
 from friendship.models import Friend, Follow
 from friendship.models import FriendshipRequest
 from django.core import serializers
-# Python logging package
-import logging
 
 
 @csrf_exempt
