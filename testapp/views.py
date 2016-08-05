@@ -7,14 +7,7 @@ from django.http import HttpResponse
 from django.contrib.auth.models import User
 from . serializers import UserSerializer
 from django.views.decorators.csrf import csrf_exempt
-from django.conf import settings
-from django.contrib.auth import (REDIRECT_FIELD_NAME, login as auth_login,)
-from django.contrib.auth.forms import (AuthenticationForm)
-from django.contrib.sites.shortcuts import get_current_site
 from django.http import HttpResponseRedirect
-from django.shortcuts import resolve_url
-from django.template.response import TemplateResponse
-from django.utils.http import is_safe_url
 from rest_framework import generics
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -23,9 +16,22 @@ from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
 import simplejson
 from rest_framework.decorators import api_view
-from friendship.models import Friend, Follow
+from friendship.models import Friend
 from friendship.models import FriendshipRequest
-from django.core import serializers
+
+
+@csrf_exempt
+def get_friends_list(request):
+    my_pk = int(request.POST['my_pk'])
+    my_user = User.objects.get(pk=my_pk)
+    all_friends = Friend.objects.friends(my_user)
+
+    json = {
+        "Friends": all_friends
+    }
+    data = simplejson.dumps(json)
+
+    return HttpResponse(data, content_type='application/json')
 
 
 @csrf_exempt
