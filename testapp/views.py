@@ -21,7 +21,6 @@ from friendship.models import FriendshipRequest
 
 
 @csrf_exempt
-@login_required
 def get_friends_list(request):
     # # my_pk = int(request.GET.get['my_pk'])
     # #
