@@ -22,19 +22,21 @@ from friendship.models import FriendshipRequest
 
 @csrf_exempt
 def get_friends_list(request):
-    # my_pk = int(request.GET.get['my_pk'])
-    #
-    # my_user = User.objects.get(pk=my_pk)
-    # all_friends = Friend.objects.friends(my_user)
+    my_pk = int(request.POST.get['my_pk'])
+
+    my_user = User.objects.get(pk=my_pk)
+    all_friends = Friend.objects.friends(my_user)
 
     name = request.user.username
 
     json = {
-        "name": name
+        "name": name,
+        "friends": all_friends,
     }
     data = simplejson.dumps(json)
 
     return HttpResponse(data, content_type='application/json')
+
 
 @csrf_exempt
 def friend_request(request):
