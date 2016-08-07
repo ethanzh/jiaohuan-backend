@@ -35,9 +35,6 @@ def get_friends_list(request):
 
     # ser_json = dumps(ser_friend)
 
-    for x in all_friends:
-        print(x.date_joined)
-
     name = my_user.username
 
     json = {
