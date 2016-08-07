@@ -28,6 +28,7 @@ def get_friends_list(request):
 
     all_friends = Friend.objects.friends(my_user)
     print(all_friends)
+    print(all_friends.count)
 
 
 
