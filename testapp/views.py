@@ -18,6 +18,7 @@ import simplejson
 from rest_framework.decorators import api_view
 from friendship.models import Friend
 from friendship.models import FriendshipRequest
+from django.core import serializers
 
 
 @csrf_exempt
@@ -29,6 +30,9 @@ def get_friends_list(request):
     all_friends = Friend.objects.friends(my_user)
     # print(all_friends)
     # print(len(all_friends))
+
+    ser_friend = serializers.serialize("User", Friend.objects.get(my_user))
+    print(ser_friend)
 
     for x in all_friends:
         print(x.date_joined)
