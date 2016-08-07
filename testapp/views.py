@@ -31,6 +31,7 @@ def get_friends_list(request):
     # print(all_friends)
     # print(len(all_friends))
 
+    ser_friend = serializers.serialize('json', all_friends)
 
     for x in all_friends:
         print(x.date_joined)
