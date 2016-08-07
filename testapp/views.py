@@ -47,7 +47,10 @@ def get_friends_list(request):
     }
     data = simplejson.dumps(json)
 
-    return HttpResponse(ser_friend, content_type='application/json')
+    serializer = UserSerializer(all_friends)
+    return Response(serializer.data)
+
+    #return HttpResponse(ser_friend, content_type='application/json')
 
 
 @csrf_exempt
