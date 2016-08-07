@@ -27,7 +27,7 @@ def get_friends_list(request):
     my_user = User.objects.get(pk=my_pk)
 
     all_friends = Friend.objects.friends(my_user)
-    print(all_friends)
+    print(all_friends[0])
 
     name = my_user.username
 
