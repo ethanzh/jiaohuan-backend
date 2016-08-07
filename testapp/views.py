@@ -24,7 +24,7 @@ from friendship.models import FriendshipRequest
 def get_friends_list(request):
 
     #my_pk = int(request.POST.get['my_pk'])
-    my_pk = request.POST.get['my_pk']
+    my_pk = request.POST['my_pk']
     print(my_pk)
 
     my_user = User.objects.get(pk=my_pk)
