@@ -34,7 +34,7 @@ def get_friends_list(request):
 
     json = {
         "name": name,
-        "friends": all_friends,
+        #"friends": all_friends,
     }
     data = simplejson.dumps(json)
 
