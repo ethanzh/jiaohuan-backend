@@ -27,7 +27,10 @@ def get_friends_list(request):
     my_user = User.objects.get(pk=my_pk)
 
     all_friends = Friend.objects.friends(my_user)
-    print(all_friends[0])
+    print(all_friends[0].first_name)
+
+
+
 
     name = my_user.username
 
@@ -43,8 +46,8 @@ def get_friends_list(request):
 @csrf_exempt
 def friend_request(request):
 
-    my_pk = int(request.POST['my_pk'])
-    their_pk = int(request.POST['their_pk'])
+    my_pk = int(request.POST('my_pk'))
+    their_pk = int(request.POST('their_pk'))
 
     my_user = User.objects.get(pk=my_pk)
     their_user = User.objects.get(pk=their_pk)
