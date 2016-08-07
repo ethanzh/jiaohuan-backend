@@ -31,7 +31,7 @@ def get_friends_list(request):
     # print(len(all_friends))
 
     for x in all_friends:
-        print(x)
+        print(x.date_joined)
 
 
     name = my_user.username
