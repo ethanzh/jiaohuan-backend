@@ -38,7 +38,6 @@ def get_friends_list(request):
     for x in all_friends:
         print(x.date_joined)
 
-
     name = my_user.username
 
     json = {
@@ -47,10 +46,7 @@ def get_friends_list(request):
     }
     data = simplejson.dumps(json)
 
-    serializer = UserSerializer(all_friends)
-    return Response(serializer.data)
-
-    #return HttpResponse(ser_friend, content_type='application/json')
+    return HttpResponse(ser_friend, content_type='application/json')
 
 
 @csrf_exempt
