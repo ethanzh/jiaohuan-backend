@@ -19,7 +19,7 @@ from rest_framework.decorators import api_view
 from friendship.models import Friend
 from friendship.models import FriendshipRequest
 from django.core import serializers
-from json import dumps
+
 
 @csrf_exempt
 def get_friends_list(request):
@@ -28,20 +28,7 @@ def get_friends_list(request):
     my_user = User.objects.get(pk=my_pk)
 
     all_friends = Friend.objects.friends(my_user)
-    # print(all_friends)
-    # print(len(all_friends))
-
     ser_friend = serializers.serialize('json', all_friends)
-
-    # ser_json = dumps(ser_friend)
-
-    name = my_user.username
-
-    json = {
-        "name": name,
-        #"friends": all_friends,
-    }
-    data = simplejson.dumps(json)
 
     return HttpResponse(ser_friend, content_type='application/json')
 
@@ -63,11 +50,6 @@ def friend_request(request):
     adding_to_database.save()
 
     id_number = adding_to_database.pk
-
-    # FriendshipRequest.objects.get_or_create(
-    #     from_user=my_user,
-    #     to_user=their_user
-    # )
 
     db_request = FriendshipRequest.objects.get(pk=id_number)
     db_request.accept()
