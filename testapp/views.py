@@ -39,8 +39,8 @@ def friend_request(request):
     my_pk = int(request.POST['my_pk'])
     their_pk = int(request.POST['their_pk'])
 
-    # my_user = User.objects.get(pk=my_pk)
-    # their_user = User.objects.get(pk=their_pk)
+    my_user = User.objects.get(pk=my_pk)
+    their_user = User.objects.get(pk=their_pk)
     #
     # adding_to_database = Friend.objects.add_friend(
     #     my_user,
@@ -65,7 +65,8 @@ def friend_request(request):
     # }
 
     json = {
-        "All is good": True
+        "my_pk": my_pk,
+        "their_pk": their_pk
     }
 
     data = simplejson.dumps(json)
