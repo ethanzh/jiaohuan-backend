@@ -36,8 +36,8 @@ def get_friends_list(request):
 @csrf_exempt
 def friend_request(request):
 
-    my_pk = int(request.POST('my_pk'))
-    their_pk = int(request.POST('their_pk'))
+    my_pk = int(request.POST['my_pk'])
+    their_pk = int(request.POST['their_pk'])
 
     # my_user = User.objects.get(pk=my_pk)
     # their_user = User.objects.get(pk=their_pk)
