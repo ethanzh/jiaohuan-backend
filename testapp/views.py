@@ -70,7 +70,7 @@ def friend_request(request):
 
     data = simplejson.dumps(json)
 
-    print("My name: " + my_name + "\nTheir Name: " + their_name)
+    #print("My name: " + my_name + "\nTheir Name: " + their_name)
 
     return HttpResponse(data, content_type='application/json')
 
