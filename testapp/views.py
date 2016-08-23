@@ -30,6 +30,8 @@ def get_friends_list(request):
     all_friends = Friend.objects.friends(my_user)
     ser_friend = serializers.serialize('json', all_friends)
 
+    print(ser_friend)
+
     return HttpResponse(ser_friend, content_type='application/json')
 
 
@@ -63,7 +65,6 @@ def friend_request(request):
         "Their Name": their_name,
         "id": id_number
     }
-
 
     data = simplejson.dumps(json)
 
