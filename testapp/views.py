@@ -35,10 +35,15 @@ def get_user_and_friends_list(request):
 
 @api_view(['GET'])
 def current_user(request):
-    serializer = UserSerializer(request.user)
+    #serializer = UserSerializer(request.user)
+
+    my_user = request.user
+
+    my_serialized_user = serializers.serialize('json', my_user)
+
 
     json = {
-        serializer.data
+        my_serialized_user
     }
 
     data = simplejson.dumps(json)
