@@ -22,6 +22,17 @@ from django.core import serializers
 
 
 @csrf_exempt
+def get_user_and_friends_list(request):
+    print(request.user.username)
+
+
+@api_view(['GET'])
+def current_user(request):
+    serializer = UserSerializer(request.user)
+    return Response(serializer.data)
+
+
+@csrf_exempt
 def get_friends_list(request):
 
     my_pk = int(request.POST['my_pk'])
@@ -106,12 +117,6 @@ class UserList(generics.ListCreateAPIView):
 
 def success(request):
     return HttpResponse("<p> Success! </p>")
-
-
-@api_view(['GET'])
-def current_user(request):
-    serializer = UserSerializer(request.user)
-    return Response(serializer.data)
 
 
 def index(request):

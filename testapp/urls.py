@@ -68,6 +68,8 @@ urlpatterns = [
 
     url(r'^friend_list/', views.get_friends_list, name='my_list_of_friends'),
 
+    url(r'^get_user_and_friends_list/', views.get_user_and_friends_list, name='get_user_and_friends_list'),
+
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)
