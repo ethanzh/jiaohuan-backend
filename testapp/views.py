@@ -36,7 +36,16 @@ def get_user_and_friends_list(request):
 @api_view(['GET'])
 def current_user(request):
     serializer = UserSerializer(request.user)
-    return Response(serializer.data)
+
+    json = {
+        serializer.data
+    }
+
+    data = simplejson.dumps(json)
+
+    #return Response(serializer.data)
+
+    return HttpResponse(data, content_type='application/json')
 
 
 @csrf_exempt
