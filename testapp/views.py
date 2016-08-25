@@ -25,6 +25,13 @@ from django.core import serializers
 def get_user_and_friends_list(request):
     print(request.user.username)
 
+    json = {
+        "Username": request.user.username
+    }
+    data = simplejson.dumps(json)
+
+    return HttpResponse(data, content_type='application/json')
+
 
 @api_view(['GET'])
 def current_user(request):
