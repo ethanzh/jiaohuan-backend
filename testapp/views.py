@@ -39,8 +39,8 @@ def login_view(request):
     my_friends = Friend.objects.friends(my_user)
 
     objects = {
-        "User_Info": serializers.serialize('json', user_serializer),
-        "Friend Data": serializers.serialize('json', my_friends)
+        "User_Info": 1,
+        "Friend Data": 2
     }
 
     #json_object = simplejson.dumps(objects)
