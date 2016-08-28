@@ -19,25 +19,44 @@ from rest_framework.decorators import api_view
 from friendship.models import Friend
 from friendship.models import FriendshipRequest
 from django.core import serializers
+from rest_framework import parsers, renderers
+from rest_framework.authtoken.models import Token
+from rest_framework.authtoken.serializers import AuthTokenSerializer
+from rest_framework.response import Response
+from rest_framework.views import APIView
 
 
 @csrf_exempt
-def get_user_and_friends_list(request):
-    print(request.user.username)
+class get_user_and_friends_list(View):
 
-    json = {
-        "First": "First"
-    }
+    throttle_classes = ()
+    permission_classes = ()
+    parser_classes = (parsers.FormParser, parsers.MultiPartParser, parsers.JSONParser,)
+    renderer_classes = (renderers.JSONRenderer,)
+    serializer_class = AuthTokenSerializer
 
-    json2 = {
-        "Second": "Second"
-    }
+    def post(self, request, *args, **kwargs):
+        serializer = self.serializer_class(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        user = serializer.validated_data['user']
+        token, created = Token.objects.get_or_create(user=user)
+        #return Response({'token': token.key})
 
-    json_dict = [json, json2]
+        json = {
+            "First": "First"
+        }
 
-    data = simplejson.dumps(json_dict)
+        json2 = {
+            "Second": "Second"
+        }
 
-    return HttpResponse(data, content_type='application/json')
+        json_dict = [json, json2]
+
+        data = simplejson.dumps(json_dict)
+
+        return HttpResponse(data, content_type='application/json')
+
+
 
 
 @api_view(['GET'])
@@ -112,6 +131,23 @@ def friend_request(request):
 
     return HttpResponse(data, content_type='application/json')
 
+
+class ObtainAuthToken(APIView):
+    throttle_classes = ()
+    permission_classes = ()
+    parser_classes = (parsers.FormParser, parsers.MultiPartParser, parsers.JSONParser,)
+    renderer_classes = (renderers.JSONRenderer,)
+    serializer_class = AuthTokenSerializer
+
+    def post(self, request, *args, **kwargs):
+        serializer = self.serializer_class(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        user = serializer.validated_data['user']
+        token, created = Token.objects.get_or_create(user=user)
+        return Response({'token': token.key})
+
+
+obtain_auth_token = ObtainAuthToken.as_view()
 
 class AuthView(APIView):
     """
