@@ -44,7 +44,7 @@ def login_view(request):
 
     json_object = simplejson.dumps(objects)
 
-    return HttpResponse(json_object, mimetype="application/json")
+    return HttpResponse(json_object, content_type="application/json")
 
 
 @api_view(['GET'])
