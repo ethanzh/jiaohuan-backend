@@ -59,6 +59,14 @@ class LogInView(View):
 
         return HttpResponse(data, content_type='application/json')
 
+    def get(self, request, *args, **kwargs):
+
+        json = {
+            "GET": True
+        }
+        data = simplejson.dumps(json)
+
+        return HttpResponse(data, content_type='application/json')
 
 
 
