@@ -32,17 +32,18 @@ def login_view(request):
 
     print(request.user.id)
 
-    json = {
+    test_json = {
         "TEST": True
     }
 
-    parsed_json = simplejson.dumps(json)
+    objects = {
+        "Test_JSON": simplejson.dumps(test_json),
+        "User_Info": user_serializer
+    }
 
-    all_objects = list(user_serializer) + list(parsed_json)
+    obj_json = simplejson.dumps(objects)
 
-    data = serializers.serialize('json', all_objects)
-
-    return HttpResponse(data, content_type='application/json')
+    return HttpResponse(obj_json, content_type='application/json')
 
 
 @api_view(['GET'])
