@@ -69,7 +69,7 @@ urlpatterns = [
 
     url(r'^friend_list/', views.get_friends_list, name='my_list_of_friends'),
 
-    url(r'^get_user_and_friends_list/', views.LogInView, name='get_user_and_friends_list'),
+    url(r'^get_user_and_friends_list/', views.login_view, name='get_user_and_friends_list'),
 
 ]
 

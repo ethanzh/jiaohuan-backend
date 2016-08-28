@@ -27,48 +27,18 @@ from rest_framework.views import APIView
 
 
 @csrf_exempt
-class LogInView(View):
+def login_view(request):
+    user_serializer = UserSerializer(request.user)
 
-    throttle_classes = ()
-    permission_classes = ()
-    parser_classes = (parsers.FormParser, parsers.MultiPartParser, parsers.JSONParser,)
-    renderer_classes = (renderers.JSONRenderer,)
-    serializer_class = AuthTokenSerializer
+    json = {
+        "TEST": True
+    }
 
-    def __init__(self, name):
-        self.name = name
+    data = simplejson.dumps(json)
 
-    def post(self, request, *args, **kwargs):
-        serializer = self.serializer_class(data=request.data)
-        serializer.is_valid(raise_exception=True)
-        user = serializer.validated_data['user']
-        token, created = Token.objects.get_or_create(user=user)
-        #return Response({'token': token.key})
+    json_dictionary = [user_serializer, data]
 
-        json = {
-            "First": "First"
-        }
-
-        json2 = {
-            "Second": "Second"
-        }
-
-        json_dict = [json, json2]
-
-        data = simplejson.dumps(json_dict)
-
-        return HttpResponse(data, content_type='application/json')
-
-    def get(self, request, *args, **kwargs):
-
-        json = {
-            "GET": True
-        }
-        data = simplejson.dumps(json)
-
-        return HttpResponse(data, content_type='application/json')
-
-
+    return HttpResponse(json_dictionary, content_type='application/json')
 
 @api_view(['GET'])
 def current_user(request):
