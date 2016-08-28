@@ -25,22 +25,21 @@ from rest_framework.authtoken.serializers import AuthTokenSerializer
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
+
 @api_view(['GET'])
 def login_view(request):
-    # user_serializer = UserSerializer(request.user)
-    #
-    # json = {
-    #     "TEST": True
-    # }
-    #
-    # data = simplejson.dumps(json)
-    #
-    # json_dictionary = [user_serializer, data]
-    #
-    # return HttpResponse(json_dictionary, content_type='application/json')
+    user_serializer = UserSerializer(request.user)
 
-    serializer = UserSerializer(request.user)
-    return Response(serializer.data)
+    json = {
+        "TEST": True
+    }
+
+    data = simplejson.dumps(json)
+
+    json_dictionary = [user_serializer, data]
+
+    return HttpResponse(json_dictionary, content_type='application/json')
+
 
 @api_view(['GET'])
 def current_user(request):
