@@ -39,7 +39,7 @@ urlpatterns = [
 
     # Helps obtain token when provided with username and password
     url(r'^api-token-auth/', DRFviews.obtain_auth_token),
-    DRFviews.
+
 
     url(r'^profiles/home/', views.home),
 
