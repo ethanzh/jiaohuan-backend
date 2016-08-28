@@ -27,7 +27,7 @@ from rest_framework.views import APIView
 
 
 @csrf_exempt
-class get_user_and_friends_list(View):
+class LogInView(View):
 
     throttle_classes = ()
     permission_classes = ()
