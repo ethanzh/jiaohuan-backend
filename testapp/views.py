@@ -44,7 +44,7 @@ def login_view(request):
     }
 
 
-    #json_object = simplejson.dumps(objects)
+    json_object = simplejson.dumps(objects)
 
     return HttpResponse(objects, content_type="application/json")
 
