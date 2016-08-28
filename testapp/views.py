@@ -44,6 +44,11 @@ def login_view(request):
     }
 
 
+    ##########################
+    # FIGURE OUT SERIALIZATION
+    ##########################
+
+
     json_object = simplejson.dumps(objects)
 
     return HttpResponse(objects, content_type="application/json")
