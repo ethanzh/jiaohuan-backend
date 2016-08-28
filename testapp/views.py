@@ -57,7 +57,6 @@ def current_user(request):
 
     return Response(serializer.data)
 
-
     #return HttpResponse(data, content_type='application/json')
 
 
