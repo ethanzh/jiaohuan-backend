@@ -26,9 +26,16 @@ def get_user_and_friends_list(request):
     print(request.user.username)
 
     json = {
-        "Username": request.user.username
+        "First": "First"
     }
-    data = simplejson.dumps(json)
+
+    json2 = {
+        "Second": "Second"
+    }
+
+    json_dict = [json, json2]
+
+    data = simplejson.dumps(json_dict)
 
     return HttpResponse(data, content_type='application/json')
 
