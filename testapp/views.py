@@ -30,6 +30,8 @@ from rest_framework.views import APIView
 def login_view(request):
     user_serializer = UserSerializer(request.user)
 
+    print(request.user.id)
+
     json = {
         "TEST": True
     }
