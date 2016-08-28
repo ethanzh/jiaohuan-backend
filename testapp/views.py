@@ -32,13 +32,14 @@ def login_view(request):
 
     print(request.user.id)
 
-    test_json = {
-        "TEST": True
-    }
+    my_pk = request.user.id
+
+    my_user = User.objects.get(pk=my_pk)
+    my_friends = Friend.objects.friends(my_user)
 
     objects = {
-        "Test_JSON": simplejson.dumps(test_json),
-        "User_Info": user_serializer.data
+        "User_Info": user_serializer.data,
+        "Friend Data": serializers.serialize('json', my_friends)
     }
 
     obj_json = simplejson.dumps(objects)
