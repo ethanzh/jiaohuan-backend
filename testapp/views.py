@@ -35,6 +35,9 @@ class LogInView(View):
     renderer_classes = (renderers.JSONRenderer,)
     serializer_class = AuthTokenSerializer
 
+    def __init__(self, name):
+        self.name = name
+
     def post(self, request, *args, **kwargs):
         serializer = self.serializer_class(data=request.data)
         serializer.is_valid(raise_exception=True)
