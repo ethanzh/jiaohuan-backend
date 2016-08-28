@@ -38,7 +38,8 @@ def login_view(request):
     my_user = User.objects.get(pk=my_pk)
     my_friends = Friend.objects.friends(my_user)
 
-    serialized_friends = json.dump(my_friends)
+    with open('result.json', 'w') as fp:
+        serialized_friends = json.dump(my_friends)
 
 
     objects = {
