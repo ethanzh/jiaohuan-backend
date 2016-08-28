@@ -40,7 +40,7 @@ def login_view(request):
 
     objects = {
         "User_Info": user_serializer.data,
-        "Friend Data":
+        "Friend Data": serializers.serialize(my_friends)
     }
 
     jsonObject = simplejson.dumps(objects)
