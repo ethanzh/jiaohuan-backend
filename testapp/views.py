@@ -27,6 +27,7 @@ from rest_framework.views import APIView
 
 
 @csrf_exempt
+@api_view(['GET'])
 def login_view(request):
     user_serializer = UserSerializer(request.user)
 
