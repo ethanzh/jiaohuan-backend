@@ -38,7 +38,7 @@ def login_view(request):
 
     objects = {
         "Test_JSON": simplejson.dumps(test_json),
-        "User_Info": user_serializer
+        "User_Info": user_serializer.data
     }
 
     obj_json = simplejson.dumps(objects)
