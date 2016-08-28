@@ -43,6 +43,7 @@ def login_view(request):
         "Friend Data": 2
     }
 
+
     #json_object = simplejson.dumps(objects)
 
     return HttpResponse(objects, content_type="application/json")
