@@ -11,10 +11,3 @@ class UserSerializer(serializers.ModelSerializer):
         fields = ['id', 'username', 'phone_number', 'company', 'location', 'email', 'first_name', 'last_name',
                   'is_staff', 'date_joined', 'website', 'title', 'info']
 
-
-class FriendSerializer(serializers.ModelSerializer):
-
-    class Meta:
-        model = User
-        # Removed password
-        fields = ['username']

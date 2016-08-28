@@ -5,7 +5,7 @@ from . forms import UserForm
 from django.core.urlresolvers import reverse
 from django.http import HttpResponse
 from django.contrib.auth.models import User
-from . serializers import UserSerializer, FriendSerializer
+from . serializers import UserSerializer
 from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponseRedirect
 from rest_framework import generics
@@ -37,36 +37,22 @@ def login_view(request):
     my_user = User.objects.get(pk=my_pk)
     my_friends = Friend.objects.friends(my_user)
 
-    friend_serializer = FriendSerializer(my_friends)
 
     objects = {
         "User_Info": user_serializer.data,
-        "Friend Data": friend_serializer
+        "Friend Data":
     }
 
-    obj_json = simplejson.dumps(objects)
+    jsonObject = simplejson.dumps(objects)
 
-    return HttpResponse(obj_json, content_type='application/json')
+    return HttpResponse(jsonObject, mimetype="application/json")
 
 
 @api_view(['GET'])
 def current_user(request):
     serializer = UserSerializer(request.user)
 
-    # my_user = request.user
-    #
-    # my_serialized_user = serializers.serialize('json', my_user)
-    #
-    #
-    # json = {
-    #     my_serialized_user
-    # }
-    #
-    # data = simplejson.dumps(json)
-
     return Response(serializer.data)
-
-    #return HttpResponse(data, content_type='application/json')
 
 
 @csrf_exempt
