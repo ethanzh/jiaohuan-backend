@@ -38,19 +38,14 @@ def login_view(request):
     my_user = User.objects.get(pk=my_pk)
     my_friends = Friend.objects.friends(my_user)
 
-    with open('result.json', 'w') as fp:
-        serialized_friends = json.dump(my_friends, fp)
-
-
     objects = {
-        "User_Info": user_serializer.data,
-        "Friend Data": serialized_friends
+        "User_Info": serializers.serialize('json', user_serializer),
+        "Friend Data": serializers.serialize('json', my_friends)
     }
 
-    json_object = simplejson.dumps(objects)
+    #json_object = simplejson.dumps(objects)
 
-
-    return HttpResponse(json_object, content_type="application/json")
+    return HttpResponse(objects, content_type="application/json")
 
 
 @api_view(['GET'])
