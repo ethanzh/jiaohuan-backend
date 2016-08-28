@@ -24,6 +24,7 @@ from rest_framework.authtoken.models import Token
 from rest_framework.authtoken.serializers import AuthTokenSerializer
 from rest_framework.response import Response
 from rest_framework.views import APIView
+import json
 
 
 @api_view(['GET'])
@@ -37,17 +38,16 @@ def login_view(request):
     my_user = User.objects.get(pk=my_pk)
     my_friends = Friend.objects.friends(my_user)
 
-
+    serialized_friends = json.dump(my_friends)
 
 
     objects = {
         "User_Info": user_serializer.data,
-        "Friend Data": my_friends
+        "Friend Data": serialized_friends
     }
 
-    #json_object = simplejson.dumps(objects)
+    json_object = simplejson.dumps(objects)
 
-    json_object = serializers.serialize('json', objects)
 
     return HttpResponse(json_object, content_type="application/json")
 
