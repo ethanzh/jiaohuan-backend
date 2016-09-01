@@ -39,8 +39,8 @@ def login_view(request):
     my_friends = Friend.objects.friends(my_user)
 
     objects = {
-        "User_Info": 1,
-        "Friend Data": 2
+        "User_Info": user_serializer,
+        #"Friend Data": 2
     }
 
 
@@ -51,7 +51,7 @@ def login_view(request):
 
     json_object = simplejson.dumps(objects)
 
-    return HttpResponse(objects, content_type="application/json")
+    return HttpResponse(json_object, content_type="application/json")
 
 
 @api_view(['GET'])
