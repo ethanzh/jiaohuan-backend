@@ -71,6 +71,7 @@ urlpatterns = [
 
     url(r'^get_user_and_friends_list/', views.login_view, name='get_user_and_friends_list'),
 
+
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)

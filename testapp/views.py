@@ -54,6 +54,8 @@ def login_view(request):
     return HttpResponse(json_object, content_type="application/json")
 
 
+
+
 @api_view(['GET'])
 def current_user(request):
     serializer = UserSerializer(request.user)
