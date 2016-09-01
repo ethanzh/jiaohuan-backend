@@ -72,7 +72,9 @@ def get_friends_list(request):
     all_friends = Friend.objects.friends(my_user)
     #ser_friend = serializers.serialize('json', all_friends)
 
-    ser_friend = UserSerializer(all_friends)
+    friend_a = all_friends[0]
+
+    ser_friend = UserSerializer(friend_a)
 
 
     print(my_pk)
